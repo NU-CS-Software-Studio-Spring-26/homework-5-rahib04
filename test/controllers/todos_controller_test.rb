@@ -45,4 +45,17 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to todos_url
   end
+
+  test "should toggle priority via turbo stream" do
+    before = @todo.high_priority
+
+    patch toggle_priority_todo_url(@todo), as: :turbo_stream
+
+    assert_response :success
+    assert_equal "text/vnd.turbo-stream.html", response.media_type
+    assert_includes response.body, "<turbo-stream"
+    assert_includes response.body, %(target="#{dom_id(@todo)}")
+
+    assert_equal !before, @todo.reload.high_priority
+  end
 end
