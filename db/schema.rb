@@ -16,6 +16,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_08_120000) do
     t.string "description"
     t.boolean "done", default: false, null: false
     t.datetime "due_date"
+    t.boolean "high_priority", default: false, null: false
     t.datetime "updated_at", null: false
   end
 end
