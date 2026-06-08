@@ -186,6 +186,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.19.3-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.19.3-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.19.3-x86_64-linux-gnu)
       racc (~> 1.4)
     nokogiri (1.19.3-x86_64-linux-musl)
@@ -195,6 +197,13 @@ GEM
     parser (3.3.11.1)
       ast (~> 2.4.1)
       racc
+    pg (1.6.3)
+    pg (1.6.3-aarch64-linux)
+    pg (1.6.3-aarch64-linux-musl)
+    pg (1.6.3-arm64-darwin)
+    pg (1.6.3-x86_64-darwin)
+    pg (1.6.3-x86_64-linux)
+    pg (1.6.3-x86_64-linux-musl)
     pp (0.6.3)
       prettyprint
     prettyprint (0.2.0)
@@ -317,6 +326,7 @@ GEM
     sqlite3 (2.9.4-arm-linux-gnu)
     sqlite3 (2.9.4-arm-linux-musl)
     sqlite3 (2.9.4-arm64-darwin)
+    sqlite3 (2.9.4-x86_64-darwin)
     sqlite3 (2.9.4-x86_64-linux-gnu)
     sqlite3 (2.9.4-x86_64-linux-musl)
     sshkit (1.25.0)
@@ -333,6 +343,7 @@ GEM
     thruster (0.1.21)
     thruster (0.1.21-aarch64-linux)
     thruster (0.1.21-arm64-darwin)
+    thruster (0.1.21-x86_64-darwin)
     thruster (0.1.21-x86_64-linux)
     timeout (0.6.1)
     tsort (0.2.0)
@@ -366,6 +377,7 @@ PLATFORMS
   arm-linux-gnu
   arm-linux-musl
   arm64-darwin-23
+  x86_64-darwin-23
   x86_64-linux
   x86_64-linux-gnu
   x86_64-linux-musl
@@ -378,6 +390,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   kamal
+  pg (~> 1.1)
   propshaft
   puma (>= 5.0)
   rails (~> 8.1.3)
