@@ -86,7 +86,6 @@ end
 - `sqlite3` remains scoped to development/test.
 
 ### Deployed application URL
-- Heroku app URL: _TO BE ADDED AFTER DEPLOYMENT_
+- Heroku app URL: https://salty-peak-45609-35042a6840e0.herokuapp.com/
 
-## Notes
-- I have not paired on this assignment.
+
