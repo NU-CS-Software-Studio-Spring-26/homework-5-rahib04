@@ -1,0 +1,16 @@
+---
+description: Rails 8 conventions for the sample todo app
+alwaysApply: true
+---
+
+# Rails conventions
+
+- Follow standard Rails MVC organization.
+- Prefer Turbo Streams and Rails helpers over custom JavaScript for interactive UI.
+- Keep migrations reversible.
+- Use strong parameters for all controller input.
+- Use `bin/rails generate` when adding Rails boilerplate such as models, migrations, and controllers.
+- Keep changes scoped to the todo app.
+- Do not import unrelated models, migrations, or patterns from other projects.
+- Keep controller actions small and move repeated view markup into partials.
+- Add or update tests for behavior changes.

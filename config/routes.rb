@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :todos, except: :new
+  resources :todos, except: :new do
+    member do
+      patch :toggle_priority
+    end
+  end
+
   get '/todos/new', to: 'todos#new', as: :new_todo
   get '/hello', to: 'todos#hello'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
