@@ -5,11 +5,23 @@
 <h1>Todos</h1>
 
 <div id="todos">
-  <% @todos.each do |todo| %>
-    <%= render todo %>
-    <p>
-      <%= link_to "Show this todo", todo %>
-    </p>
+  <% if @todos.any? %>
+    <% @todos.each do |todo| %>
+      <%= render todo %>
+      <p>
+        <%= link_to "Show this todo", todo %>
+      </p>
+    <% end %>
+  <% else %>
+    <p>No todos found</p>
+  <% end %>
+</div>
+
+<div>
+  <%= form_with url: todos_path, method: :get, local: true do |f| %>
+    <%= f.label :category, "Filter by category", style: "display:block" %>
+    <%= f.select :category, options_for_select(["All", "work", "study", "home chores", "personal"], params[:category]), include_blank: false %>
+    <%= f.submit "Filter" %>
   <% end %>
 </div>
 

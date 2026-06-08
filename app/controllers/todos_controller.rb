@@ -4,6 +4,9 @@ class TodosController < ApplicationController
   # GET /todos or /todos.json
   def index
     @todos = Todo.all
+    if params[:category].present? && params[:category] != "All"
+      @todos = @todos.with_category(params[:category])
+    end
   end
 
   # GET /todos/1 or /todos/1.json
@@ -82,6 +85,6 @@ class TodosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def todo_params
-      params.expect(todo: [ :description, :done ])
+      params.expect(todo: [ :description, :done, :category ])
     end
 end

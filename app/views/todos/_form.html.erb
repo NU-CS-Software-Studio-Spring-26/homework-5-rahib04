@@ -22,6 +22,11 @@
   </div>
 
   <div>
+    <%= form.label :category, style: "display: block" %>
+    <%= form.select :category, options_for_select(["work", "study", "home chores", "personal"], todo.category) %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
