@@ -1,6 +1,47 @@
 name: CI
 
 on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:14
+        env:
+          POSTGRES_DB: test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 10s --health-timeout 5s --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3
+
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+
+      - name: Prepare database
+        run: |
+          bin/rails db:prepare RAILS_ENV=test
+
+      - name: Run RSpec
+        run: bundle exec rspec
+
+      - name: Run Cucumber
+        run: bundle exec cucumbername: CI
+
+on:
   pull_request:
   push:
     branches: [ main ]
